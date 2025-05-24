@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Luxe Layered Image</title>
+<style>
+  /* Reset */
+  * {
+    box-sizing: border-box;
+    margin: 0; padding: 0;
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1e1e2f, #3a3a5c);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #f0f0f0;
+  }
+
+  .card {
+    position: relative;
+    width: 320px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #2c2c47;
+    box-shadow:
+      0 10px 20px rgba(0, 0, 0, 0.6),
+      0 6px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-15px);
+    box-shadow:
+      0 20px 40px rgba(0, 0, 0, 0.8),
+      0 10px 10px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Luxe layered shadows behind the image */
+  .card::before,
+  .card::after {
+    content: "";
+    position: absolute;
+    border-radius: 20px;
+    z-index: -1;
+  }
+
+  .card::before {
+    top: 15px;
+    left: 15px;
+    width: 100%;
+    height: 100%;
+    background: #494974;
+    filter: blur(10px);
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+  }
+
+  .card::after {
+    top: 30px;
+    left: 30px;
+    width: 100%;
+    height: 100%;
+    background: #6161a4;
+    filter: blur(20px);
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+  }
+
+  .card:hover::before {
+    opacity: 0.9;
+  }
+
+  .card:hover::after {
+    opacity: 0.7;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+    object-fit: cover;
+  }
+
+  .info {
+    padding: 20px;
+    background: linear-gradient(180deg, transparent 0%, #1e1e2f 80%);
+    text-align: center;
+  }
+
+  .info h2 {
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+  }
+
+  .info p {
+    font-weight: 400;
+    font-size: 1rem;
+    color: #bbb;
+  }
+
+</style>
+</head>
+<body>
+
+  <div class="card">
+    <img src="your-image.jpg" alt="Luxe Layered Image" />
+    <div class="info">
+      <h2>Luxe Layered Design</h2>
+      <p>A clean, modern layered shadow effect to showcase your image.</p>
+    </div>
+  </div>
+
+</body>
+</html>
